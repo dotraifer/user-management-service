@@ -5,7 +5,7 @@ from app.configuration import Configurations
 
 DATABASE_URL = Configurations.database.url
 
-engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False}, echo=True)
+engine = create_engine(DATABASE_URL, echo=True)
 SessionLocal = sessionmaker(bind=engine, autoflush=False)
 Base = declarative_base()
 

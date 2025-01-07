@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app import database, models, auth
+from app.cache import get_cached_user
 
 router = APIRouter()
 
@@ -25,6 +26,6 @@ def get_profile(
     Returns:
         dict: A dictionary containing the user's profile information.
     """
-    db_user: models.User = db.query(models.User).filter(models.User.id == current_user["user_id"]).first()
+    db_user: models.User = get_cached_user(current_user["user_id"], db)
     logging.debug(f"User {db_user.first_name} {db_user.last_name} retrieved their profile")
-    return {db_user.__str__()}
+    return {db_user}

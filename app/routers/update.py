@@ -3,6 +3,7 @@ import logging
 from fastapi import APIRouter, Depends, HTTPException
 from app import schemas, database, models, auth
 from sqlalchemy.orm import Session
+from app.cache import invalidate_cache
 
 router = APIRouter()
 
@@ -35,5 +36,6 @@ def update(user: schemas.UserUpdate, db: Session = Depends(database.get_db),
         setattr(db_user, key, value)
 
     db.commit()
+    invalidate_cache()  # Invalidate the cache to reflect the updated user information
     logging.debug(f"User {db_user.first_name} {db_user.last_name} updated successfully!")
-    return {"message": "User updated successfully!"}
+    return {"message": "User information updated successfully!"}
