@@ -1,2 +1,2 @@
 database:
-  url: sqlite:///C:/user_managment_service/usermanagmentservice.sqlite.db
+  url: sqlite:///code/db/usermanagmentservice.sqlite.db
