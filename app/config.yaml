@@ -1,2 +1,2 @@
 database:
-  url: sqlite:///C:/user_managment_service/usermanagmentservice.sqlite.db
+  url: "postgresql://postgres:dotan0410@host.docker.internal:5432/postgres"

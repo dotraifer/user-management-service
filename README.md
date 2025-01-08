@@ -4,7 +4,7 @@ This is a simple user management service that allows you to create,
 read, update and delete users.
 
 The project can be run locally or on docker.
-An sql database(sqllite/postgre/mssql/mysql) is used to store the user data.
+A sql database(sqllite or postgres) is used to store the user data.
 
 ## Run the project
 
