@@ -1,9 +1,11 @@
-from fastapi import FastAPI
-from app.routers import register, login, update, profile
-import uvicorn
-from app.database import Base, engine, SessionLocal
 import logging
 import logging.config
+
+import uvicorn
+from fastapi import FastAPI
+
+from app.database import Base, engine
+from app.routers import register, login, update, profile
 
 logging.config.fileConfig('logging.conf')
 
