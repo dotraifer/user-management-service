@@ -27,7 +27,7 @@ def update(user: schemas.UserUpdate, db: Session = Depends(database.get_db),
     Returns:
         dict: A dictionary containing a success message.
     """
-    logging.error(f"User {current_user} is updating their information")
+    logging.debug(f"User {current_user} is updating their information")
     db_user = db.query(models.User).filter(models.User.id == current_user["user_id"]).first()
     if not db_user:
         raise HTTPException(status_code=404, detail="User not found")
