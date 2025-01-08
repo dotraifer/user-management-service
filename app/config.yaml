@@ -1,2 +1,6 @@
 database:
   url: "postgresql://postgres:dotan0410@host.docker.internal:5432/postgres"
+
+port: 8000
+host: 0.0.0.0
+cache_size: 200

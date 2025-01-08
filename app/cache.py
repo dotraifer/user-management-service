@@ -2,9 +2,10 @@ from functools import lru_cache
 from app.database import get_db
 from sqlalchemy.orm import Session
 from app import models
+from configuration import Configurations
 
 
-@lru_cache(maxsize=200)
+@lru_cache(maxsize=Configurations.cache_size)
 def get_cached_user(user_id: int, db: Session):
     """
     Retrieve a cached user from the database.

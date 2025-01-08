@@ -6,6 +6,7 @@ from fastapi import FastAPI
 
 from app.database import Base, engine
 from app.routers import register, login, update, profile
+from configuration import Configurations
 
 logging.config.fileConfig('logging.conf')
 
@@ -25,4 +26,4 @@ def create_tables():
 if __name__ == "__main__":
     logging.info("Starting server")
     create_tables()
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host=Configurations.host, port=Configurations.port)

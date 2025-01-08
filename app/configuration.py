@@ -23,6 +23,9 @@ class Configurations(BaseModel):
     Attributes:
         database (DataBaseConfigurations): The database configurations.
     """
+    port: int = 8000
+    host: str = "0.0.0.0"
+    cache_size: int = 200
     database: DataBaseConfigurations
 
 
