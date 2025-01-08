@@ -38,4 +38,4 @@ def update(user: schemas.UserUpdate, db: Session = Depends(database.get_db),
     db.commit()
     invalidate_cache()  # Invalidate the cache to reflect the updated user information
     logging.debug(f"User {db_user.first_name} {db_user.last_name} updated successfully!")
-    return {"message": "User information updated successfully!"}
+    return {"message": f"User {db_user.first_name} {db_user.last_name} information updated successfully!"}

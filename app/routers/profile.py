@@ -28,4 +28,4 @@ def get_profile(
     """
     db_user: models.User = get_cached_user(current_user["user_id"], db)
     logging.debug(f"User {db_user.first_name} {db_user.last_name} retrieved their profile")
-    return {db_user}
+    return {db_user.__str__()}
